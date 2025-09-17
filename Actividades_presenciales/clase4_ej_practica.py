@@ -55,13 +55,12 @@ alumnos = [
 
 idx = len(alumnos)
 n = random.sample(range(idx), (idx))
-new_list = [alumnos[i] for i in n]
-matriz = [[0 for _ in range(idx//4)] for _ in range(4)]
-c = 0
 
-for i in range(0, idx):
-    for j in range(5):
-        matriz[i][j] = new_list[0 + c]
-        c += 1
+for i in range(idx-1, 0, -1):
+    m = random.randint(0, i+1)
 
-print(matriz)
+    alumnos[i], alumnos[m] = alumnos[m], alumnos[i]
+
+for i in range(0, idx, 4):
+    print(alumnos[i:i+4], end=" ")
+    print()
